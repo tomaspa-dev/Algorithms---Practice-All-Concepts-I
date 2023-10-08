@@ -1,10 +1,58 @@
 "use strict";
 
+//LeetCode//
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+
+//Input: nums = [4,1,2,1,2]
+//Output: 4
+
+var singleNumber = function (nums) {
+  const numberMap = {}; // Inicializa un objeto vacío para el hashmap
+
+  // Itera a través del arreglo
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+
+    // Si el número ya existe en el hashmap, aumenta su contador
+    if (numberMap[num]) {
+      numberMap[num] += 1;
+    } else {
+      // Si el número no existe, crea una nueva entrada con el número y lo establece en 1
+      numberMap[num] = 1;
+    }
+  }
+
+  return numberMap;
+};
+
+const numbers = [4, 1, 2, 1, 2];
+const numberMap = singleNumber(numbers);
+
+console.log(numberMap);
+
+/* function findUniqueElement(nums) {
+  let unique = 0;
+
+  for (const num of nums) {
+    unique ^= num;
+  }
+
+  return unique;
+}
+
+const numbers = [4, 1, 2, 1, 2];
+const uniqueNumber = findUniqueElement(numbers);
+
+console.log("El número único es:", uniqueNumber); */
+
 // //1 Excercises
 
-let a = null;
-a ??= "valor predeterminado";
-console.log(a);
+// let a = null;
+// a ??= "valor predeterminado";
+// console.log(a);
 
 // const a = 1;
 // const result = a == true ? true : false;
