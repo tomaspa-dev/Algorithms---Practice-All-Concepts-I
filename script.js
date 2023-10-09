@@ -1,22 +1,97 @@
 "use strict";
 
+//*****/2-HashTable/*****/
+
+//Example1-TwoSum //2-HashTable//
+// Entrada
+
+const nums0 = [];
+const target0 = 9;
+
+const nums1 = [-1, 10];
+const target1 = 9;
+
+const nums2 = [2, 7, 11, 15];
+const target2 = 9;
+
+const nums3 = [11, 15, 7, 2];
+const target3 = 9;
+
+const hashMap = function (array, target) {
+  // console.log(array, target1);
+  if (array && array.length > 1) {
+    const hashMap = new Map();
+
+    for (let i = 0; i < array.length; i++) {
+      const complement = target - array[i];
+      if (hashMap.has(complement)) {
+        return [hashMap.get(complement), i];
+      }
+      hashMap.set(array[i], i);
+    }
+    // console.log(hashMap);
+  }
+  return undefined;
+};
+
+const findIndex = hashMap(nums3, target3);
+console.log(findIndex);
+
+// Salida
+// El valor 2 en el índice 0 y el valor 7 en el índice 1 suman 9.
+//Example1 //2-HashTable//
+
+// const hashTable = {};
+// hashTable["clave1"] = "valor1";
+// hashTable[2] = 4;
+// console.log(hashTable);
+
+// const hashMap = new Map();
+// hashMap.set("clave1", "valor1");
+// hashMap.set(42, "valor2");
+// console.log(hashMap);
+
+//*****/2-HashTable/*****/
+
 //*****/1-Arrays/*****/
 
-let frutas = ["Manzana", "Banana"];
+// const array1 = [5, 12, 8, 130, 44];
 
-let newLength = frutas.push("Naranja");
-console.log(newLength);
-let ultimo = frutas.pop();
-let primero = frutas.shift();
-console.log(ultimo);
-console.log(primero);
-const newLength2 = frutas.unshift("Uvas", "Sandia");
-console.log(frutas);
-console.log(newLength2);
+// // Fill with 0 from position 2 until position 4
+// console.log(array1.fill(0, 2, 4));
+// const reversed = array1.reverse();
+// console.log(reversed);
+// console.log(array1.sort());
+// console.log(typeof array1.join("-"));
 
-// frutas.splice(1, 1, "Fresa", "Durazno");
-frutas.splice(1, 1);
-console.log(frutas);
+// Expected output: Array [1, 2, 0, 0]
+
+// const array1 = [1, 0, 9];
+
+// console.log(array1.includes(9));
+// Expected output: true
+
+// let numeros = [1, 2, 3, 4, 5];
+// console.log(numeros);
+
+// const sliceNumeros = numeros.slice(0, 3);
+// console.log(sliceNumeros);
+
+// let frutas = ["Manzana", "Banana"];
+
+// let newLength = frutas.push("Naranja");
+// console.log(newLength);
+// let ultimo = frutas.pop();
+// let primero = frutas.shift();
+// console.log(ultimo);
+// console.log(primero);
+// const newLength2 = frutas.unshift("Uvas", "Sandia");
+// console.log(frutas);
+// console.log(newLength2);
+
+// // frutas.splice(1, 1, "Fresa", "Durazno");
+// frutas.splice(1, 1);
+// console.log(frutas);
 
 //0 Construyendo  e inicializando arreglos
 // const numeros = [1, 2, 3, 4];
