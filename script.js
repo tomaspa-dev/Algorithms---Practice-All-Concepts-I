@@ -2,6 +2,22 @@
 
 //*****/1-Arrays/*****/
 
+let frutas = ["Manzana", "Banana"];
+
+let newLength = frutas.push("Naranja");
+console.log(newLength);
+let ultimo = frutas.pop();
+let primero = frutas.shift();
+console.log(ultimo);
+console.log(primero);
+const newLength2 = frutas.unshift("Uvas", "Sandia");
+console.log(frutas);
+console.log(newLength2);
+
+// frutas.splice(1, 1, "Fresa", "Durazno");
+frutas.splice(1, 1);
+console.log(frutas);
+
 //0 Construyendo  e inicializando arreglos
 // const numeros = [1, 2, 3, 4];
 // console.log(numeros);
@@ -29,15 +45,15 @@
 // const numeros = [1, 2, 3];
 // numeros.forEach((numero) => console.log(numero));
 
-const numeros = [1, 2, 3, 4, 5];
+// const numeros = [1, 2, 3, 4, 5];
 
-const suma = numeros.reduce(function (acumulador, numero) {
-  return acumulador + numero;
-}, 0);
+// const suma = numeros.reduce(function (acumulador, numero) {
+//   return acumulador + numero;
+// }, 0);
 
-const suma1 = numeros.reduce((acumulador, numero) => acumulador + numero, 0);
+// const suma1 = numeros.reduce((acumulador, numero) => acumulador + numero, 0);
 
-console.log(suma1); // 15
+// console.log(suma1); // 15
 
 //*****/1-Arrays/*****/
 
