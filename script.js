@@ -1,52 +1,49 @@
 "use strict";
 
+//*****/1-Arrays/*****/
+
+//0 Construyendo  e inicializando arreglos
+// const numeros = [1, 2, 3, 4];
+// console.log(numeros);
+
+// const pares = numeros.filter((numero) => numero % 2 !== 0);
+// console.log(pares);
+
+// const newNumeros = numeros.map((numero) => Math.pow(numero, 1 / 2));
+// console.log(newNumeros);
+
+// const [primero, segundo] = numeros;
+// console.log(primero, segundo, typeof primero, typeof numeros);
+
+// const numeros = [1, 2, 3, 4, [5, 6, 7, 8], [9, 10]];
+// console.log(numeros);
+
+// const nuevosNumeros = [, , , ...numeros];
+// console.log(nuevosNumeros);
+
+// Array(7); // [7]
+// console.log(Array(7));
+// Array.of(1, 2, 3); // [1, 2, 3]
+// console.log(Array.of(1, 2, 3));
+
+// const numeros = [1, 2, 3];
+// numeros.forEach((numero) => console.log(numero));
+
+const numeros = [1, 2, 3, 4, 5];
+
+const suma = numeros.reduce(function (acumulador, numero) {
+  return acumulador + numero;
+}, 0);
+
+const suma1 = numeros.reduce((acumulador, numero) => acumulador + numero, 0);
+
+console.log(suma1); // 15
+
+//*****/1-Arrays/*****/
+
 //LeetCode//
-/**
- * @param {number[]} nums
- * @return {number}
- */
 
-//Input: nums = [4,1,2,1,2]
-//Output: 4
-
-var singleNumber = function (nums) {
-  const numberMap = {}; // Inicializa un objeto vacío para el hashmap
-
-  // Itera a través del arreglo
-  for (let i = 0; i < nums.length; i++) {
-    const num = nums[i];
-
-    // Si el número ya existe en el hashmap, aumenta su contador
-    if (numberMap[num]) {
-      numberMap[num] += 1;
-    } else {
-      // Si el número no existe, crea una nueva entrada con el número y lo establece en 1
-      numberMap[num] = 1;
-    }
-  }
-
-  return numberMap;
-};
-
-const numbers = [4, 1, 2, 1, 2];
-const numberMap = singleNumber(numbers);
-
-console.log(numberMap);
-
-/* function findUniqueElement(nums) {
-  let unique = 0;
-
-  for (const num of nums) {
-    unique ^= num;
-  }
-
-  return unique;
-}
-
-const numbers = [4, 1, 2, 1, 2];
-const uniqueNumber = findUniqueElement(numbers);
-
-console.log("El número único es:", uniqueNumber); */
+//LeetCode//
 
 // //1 Excercises
 
