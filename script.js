@@ -1,36 +1,163 @@
 "use strict";
 
 //*****/2-HashTable/*****/
-// // // Example 4 // //
+// // // Example 8 // //
 
-var numIdenticalPairs = function (nums) {
-  let goodPairs = 0;
-  const numCounts = new Map();
-
-  for (let i = 0; i < nums.length; i++) {
-    if (numCounts.has(nums[i])) {
-      numCounts.set(nums[i], numCounts.get(nums[i]) + 1);
-      // console.log(numCounts);
-    } else {
-      numCounts.set(nums[i], 1);
+var numberOfEmployeesWhoMetTarget = function (hours, target) {
+  let cont = 0;
+  for (let i = 0; i < hours.length; i++) {
+    if (hours[i] >= target) {
+      cont++;
     }
-    // console.log(numCounts.entries());
   }
 
-  for (const [key, value] of numCounts.entries()) {
-    goodPairs += (value * (value - 1)) / 2;
-    // console.log(key, value);
-  }
-  // console.log(numCounts);
-  return goodPairs;
+  return cont;
 };
-//[1, 2, 3, 1, 1, 3];
-//[1,1,1,1]
-//[1,2,3]
-const nums = [2, 2, 1];
-const totalGoodPairs = numIdenticalPairs(nums);
-console.log(totalGoodPairs);
-console.log(`El número total de good pairs es: ${totalGoodPairs}`);
+
+// Input: (hours = [0, 1, 2, 3, 4]), (target = 2);
+// Output: 3;
+// Input: hours = [5,1,4,2,2], target = 6
+// Output: 0
+
+console.log(numberOfEmployeesWhoMetTarget([0, 1, 2, 3, 4], 2));
+
+// // // Example 8 // //
+
+// // // Example 7 // //
+// var shuffle = function (nums, n) {
+//   let array = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     if (i % 2 === 0) {
+//       array[i] = nums[i / 2];
+//     } else {
+//       console.log(n);
+//       array[i] = nums[n];
+//       n++;
+//     }
+//   }
+//   return array;
+// };
+
+//more optimal
+// var shuffle = function (nums, n) {
+//   let res = [];
+//   for (let i = 0; i < n; i++) {
+//     res.push(nums[i]);
+//     res.push(nums[i + n]);
+//   }
+//   return res;
+// };
+
+// Input: (nums = [2, 5, 1, 3, 4, 7]), (n = 3);
+// Output: [2, 3, 5, 4, 1, 7];
+
+// Input: (nums = [1, 2, 3, 4, 4, 3, 2, 1]), (n = 4);
+// Output: [1, 4, 2, 3, 3, 2, 4, 1];
+
+// Input: (nums = [1, 1, 2, 2]), (n = 2);
+// Output: [1, 2, 1, 2];
+
+// const nums = [1, 2, 3, 4, 4, 3, 2, 1];
+// console.log(shuffle(nums, 4));
+
+// // // Example 7 // //
+
+// // // Example 6 // //
+// var finalValueAfterOperations = function (operations) {
+//   let X = 0;
+
+//   for (let operation of operations) {
+//     if (operation.includes("++")) {
+//       X++;
+//     } else if (operation.includes("--")) {
+//       X--;
+//     }
+//   }
+
+//   return X;
+// };
+
+// const operations = ["--X", "X++", "X++"];
+// console.log(finalValueAfterOperations(operations));
+
+// const finalValueAfterOperations = (operations) => operations.reduce((acc, curr) => curr[1] === "+" ? ++acc : --acc, 0)
+
+// Input: const operations = ["--X","X++","X++"]
+// Output: 1
+// // // Example 6 // //
+
+// // // Example 5 // //
+// Array from permuttations
+
+// var buildArray = function (nums) {
+//   const ans = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     ans[i] = nums[nums[i]];
+//   }
+//   return ans;
+// };
+
+//Other solution
+// var buildArray = function(nums) {
+//   return nums.map(a=>nums[a]);
+// };
+
+//Input: nums = [0,2,1,5,3,4]
+//Output: [0,1,2,4,5,3]
+//Input: nums = [5, 0, 1, 2, 3, 4];
+//Output: [4,5,0,1,2,3]
+// const nums = [5, 0, 1, 2, 3, 4];
+// const result = buildArray(nums);
+// console.log(result);
+
+// // // Example 5 // //
+
+// // // Example 4 // //
+// var numIdenticalPairs = function (nums) {
+//   let goodPairs = 0;
+//   const numCounts = new Map();
+
+//   for (let i = 0; i < nums.length; i++) {
+//     if (numCounts.has(nums[i])) {
+//       numCounts.set(nums[i], numCounts.get(nums[i]) + 1);
+//       // console.log(numCounts);
+//     } else {
+//       numCounts.set(nums[i], 1);
+//     }
+//     // console.log(numCounts.entries());
+//   }
+
+//   for (const [key, value] of numCounts.entries()) {
+//     goodPairs += (value * (value - 1)) / 2;
+//     // console.log(key, value);
+//   }
+//   // console.log(numCounts);
+//   return goodPairs;
+// };
+// //[1, 2, 3, 1, 1, 3];
+// //[1,1,1,1]
+// //[1,2,3]
+// const nums = [2, 2, 1];
+// const totalGoodPairs = numIdenticalPairs(nums);
+// console.log(totalGoodPairs);
+// console.log(`El número total de good pairs es: ${totalGoodPairs}`);
+
+//Optimal
+// var numIdenticalPairs = function (nums) {
+//   let count = {};
+//   let result = 0;
+
+//   for (let num of nums) {
+//     if (num in count) {
+//       result += count[num];
+//       count[num]++;
+//     } else {
+//       count[num] = 1;
+//     }
+//   }
+
+//   return result;
+// };
 
 //Optimal Solution
 // function numIdenticalPairs(A) {
@@ -46,8 +173,8 @@ console.log(`El número total de good pairs es: ${totalGoodPairs}`);
 // }
 
 // numIdenticalPairs(nums);
-
 // // // Example 4 // //
+
 // // // Example 3 // //
 // const nums = [1, 3, 2, 1];
 
