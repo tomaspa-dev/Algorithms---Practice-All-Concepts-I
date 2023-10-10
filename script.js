@@ -1,41 +1,140 @@
 "use strict";
 
 //*****/2-HashTable/*****/
+// // // Example 4 // //
 
+var numIdenticalPairs = function (nums) {
+  let goodPairs = 0;
+  const numCounts = new Map();
+
+  for (let i = 0; i < nums.length; i++) {
+    if (numCounts.has(nums[i])) {
+      goodPairs += numCounts.get(nums[i]);
+      numCounts.set(nums[i], numCounts.get(nums[i]) + 1);
+    } else {
+      numCounts.set(nums[i], 1);
+    }
+  }
+  return goodPairs;
+};
+
+const nums = [1, 2, 3, 1, 1, 3];
+const totalGoodPairs = numIdenticalPairs(nums);
+console.log(`El número total de good pairs es: ${totalGoodPairs}`);
+
+// numIdenticalPairs(nums);
+
+// // // Example 4 // //
+// // // Example 3 // //
+// const nums = [1, 3, 2, 1];
+
+// var getConcatenation = function (nums) {
+//   const ans = nums.concat(nums);
+//   return ans;
+// };
+
+// console.log(getConcatenation(nums));
+
+// // // Example 3 // //
+// 1929. Concatenation of Array
+// Given an integer array nums of length n, you want to create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+
+// Specifically, ans is the concatenation of two nums arrays.
+
+// Return the array ans.
+
+// Example 1:
+
+// Input: nums = [1,2,1]
+// Output: [1,2,1,1,2,1]
+// Explanation: The array ans is formed as follows:
+// - ans = [nums[0],nums[1],nums[2],nums[0],nums[1],nums[2]]
+// - ans = [1,2,1,1,2,1]
+// Example 2:
+
+// Input: nums = [1,3,2,1]
+// Output: [1,3,2,1,1,3,2,1]
+// Explanation: The array ans is formed as follows:
+// - ans = [nums[0],nums[1],nums[2],nums[3],nums[0],nums[1],nums[2],nums[3]]
+// - ans = [1,3,2,1,1,3,2,1]
+
+// Constraints:
+
+// n == nums.length
+// 1 <= n <= 1000
+// 1 <= nums[i] <= 1000
+
+// // Example 3 // //
+
+// // Example 2 // //
+// // Input: nums = [2,7,11,15], target = 9
+// // Output: [0,1]
+// // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+// // Example 2:
+
+// // Input: nums = [3,2,4], target = 6
+// // Output: [1,2]
+// // Example 3:
+
+// // Input: nums = [3,3], target = 6
+// // Output: [0,1]
+
+// // Constraints:
+
+// // 2 <= nums.length <= 104
+// // -109 <= nums[i] <= 109
+// // -109 <= target <= 109
+
+// var twoSum = function (nums, target) {
+//   if (nums && nums.length > 1) {
+//     const hashMap = new Map();
+//     for (let i = 0; i < nums.length; i++) {
+//       const complement = target - nums[i];
+
+//       if (hashMap.has(complement)) {
+//         return [hashMap.get(complement), i];
+//       }
+
+//       hashMap.set(nums[i], i);
+//     }
+//     return undefined;
+//   }
+// };
+// // Example 2 // //
 //Example1-TwoSum //2-HashTable//
 // Entrada
 
-const nums0 = [];
-const target0 = 9;
+// const nums0 = [];
+// const target0 = 9;
 
-const nums1 = [-1, 10];
-const target1 = 9;
+// const nums1 = [-1, 10];
+// const target1 = 9;
 
-const nums2 = [2, 7, 11, 15];
-const target2 = 9;
+// const nums2 = [2, 7, 11, 15];
+// const target2 = 9;
 
-const nums3 = [11, 15, 7, 2];
-const target3 = 9;
+// const nums3 = [11, 15, 7, 2];
+// const target3 = 9;
 
-const hashMap = function (array, target) {
-  // console.log(array, target1);
-  if (array && array.length > 1) {
-    const hashMap = new Map();
+// const hashMap = function (array, target) {
+//   // console.log(array, target1);
+//   if (array && array.length > 1) {
+//     const hashMap = new Map();
 
-    for (let i = 0; i < array.length; i++) {
-      const complement = target - array[i];
-      if (hashMap.has(complement)) {
-        return [hashMap.get(complement), i];
-      }
-      hashMap.set(array[i], i);
-    }
-    // console.log(hashMap);
-  }
-  return undefined;
-};
+//     for (let i = 0; i < array.length; i++) {
+//       const complement = target - array[i];
+//       if (hashMap.has(complement)) {
+//         return [hashMap.get(complement), i];
+//       }
+//       hashMap.set(array[i], i);
+//     }
+//     // console.log(hashMap);
+//   }
+//   return undefined;
+// };
 
-const findIndex = hashMap(nums3, target3);
-console.log(findIndex);
+// const findIndex = hashMap(nums3, target3);
+// console.log(findIndex);
 
 // Salida
 // El valor 2 en el índice 0 y el valor 7 en el índice 1 suman 9.
