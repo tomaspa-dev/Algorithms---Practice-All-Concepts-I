@@ -1,25 +1,113 @@
 "use strict";
 
 //*****/2-HashTable/*****/
-// // // Example 8 // //
 
-var numberOfEmployeesWhoMetTarget = function (hours, target) {
-  let cont = 0;
-  for (let i = 0; i < hours.length; i++) {
-    if (hours[i] >= target) {
-      cont++;
-    }
+// // // Example 9 // //
+
+// var maximumWealth = function (accounts) {
+//   return Math.max(
+//     ...accounts.map((customerWealth) =>
+//       customerWealth.reduce((a, b) => a + b, 0)
+//     )
+//   );
+// };
+var maximumWealth = function (accounts) {
+  // return Math.max(...accounts.map(customerWealth => customerWealth.reduce((a, b) => a + b, 0)));
+  let maxWealth = 0;
+
+  for (const customerWealth of accounts) {
+    const wealth = customerWealth.reduce((a, b) => a + b, 0);
+    maxWealth = Math.max(maxWealth, wealth);
   }
 
-  return cont;
+  return maxWealth;
 };
+const accounts = [
+  [1, 5],
+  [7, 3],
+  [3, 5],
+];
+maximumWealth(accounts);
 
-// Input: (hours = [0, 1, 2, 3, 4]), (target = 2);
-// Output: 3;
-// Input: hours = [5,1,4,2,2], target = 6
-// Output: 0
+// const sum = (arr) => {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     sum += arr[i];
+//   }
+//   return sum;
+// };
 
-console.log(numberOfEmployeesWhoMetTarget([0, 1, 2, 3, 4], 2));
+// const maximumWealth = (accounts) => {
+//   let wealthy_customer = 0;
+//   for (let balance of accounts) {
+//     const curr_wealth = sum(balance); // we will get total balance of the person
+//     wealthy_customer = Math.max(wealthy_customer, curr_wealth);
+//   }
+//   return wealthy_customer;
+// };
+
+//More optimal
+// var maximumWealth = function(accounts) {
+//   var res = 0;
+//   for(var i =0;i<accounts.length;i++){
+//       var temp = 0;
+//       for(var j = 0;j<accounts[i].length;j++){
+//           temp+=accounts[i][j];
+//       }
+//       res = Math.max(res,temp);
+//   }
+//   return res;
+// };
+//More optimal
+
+// console.log(maximumWealth(accounts));
+
+// console.log(accounts[1][0]);
+// console.log(accounts[2]);
+// console.log(...accounts[2]);
+
+// console.log(maximumWealth(accounts));
+
+// Input: accounts = [[1,2,3],[3,2,1]]
+// Output: 6
+// Explanation:
+// 1st customer has wealth = 1 + 2 + 3 = 6
+// 2nd customer has wealth = 3 + 2 + 1 = 6
+// Both customers are considered the richest with a wealth of 6 each, so return 6.
+// Example 2:
+
+// Input: accounts = [[1,5],[7,3],[3,5]]
+// Output: 10
+// Explanation:
+// 1st customer has wealth = 6
+// 2nd customer has wealth = 10
+// 3rd customer has wealth = 8
+// The 2nd customer is the richest with a wealth of 10.
+// Example 3:
+
+// Input: accounts = [[2,8,7],[7,1,3],[1,9,5]]
+// Output: 17
+
+// // // Example 9 // //
+
+// // // Example 8 // //
+// var numberOfEmployeesWhoMetTarget = function (hours, target) {
+//   let cont = 0;
+//   for (let i = 0; i < hours.length; i++) {
+//     if (hours[i] >= target) {
+//       cont++;
+//     }
+//   }
+
+//   return cont;
+// };
+
+// // Input: (hours = [0, 1, 2, 3, 4]), (target = 2);
+// // Output: 3;
+// // Input: hours = [5,1,4,2,2], target = 6
+// // Output: 0
+
+// console.log(numberOfEmployeesWhoMetTarget([0, 1, 2, 3, 4], 2));
 
 // // // Example 8 // //
 
