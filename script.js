@@ -9,18 +9,41 @@ var numIdenticalPairs = function (nums) {
 
   for (let i = 0; i < nums.length; i++) {
     if (numCounts.has(nums[i])) {
-      goodPairs += numCounts.get(nums[i]);
       numCounts.set(nums[i], numCounts.get(nums[i]) + 1);
+      // console.log(numCounts);
     } else {
       numCounts.set(nums[i], 1);
     }
+    // console.log(numCounts.entries());
   }
+
+  for (const [key, value] of numCounts.entries()) {
+    goodPairs += (value * (value - 1)) / 2;
+    // console.log(key, value);
+  }
+  // console.log(numCounts);
   return goodPairs;
 };
-
-const nums = [1, 2, 3, 1, 1, 3];
+//[1, 2, 3, 1, 1, 3];
+//[1,1,1,1]
+//[1,2,3]
+const nums = [2, 2, 1];
 const totalGoodPairs = numIdenticalPairs(nums);
+console.log(totalGoodPairs);
 console.log(`El número total de good pairs es: ${totalGoodPairs}`);
+
+//Optimal Solution
+// function numIdenticalPairs(A) {
+//   let ans = 0;
+//   const cnt = {};
+
+//   for (let x of A) {
+//       ans += cnt[x] || 0;
+//       cnt[x] = (cnt[x] || 0) + 1;
+//   }
+
+//   return ans;
+// }
 
 // numIdenticalPairs(nums);
 
